@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CG परिपत्र — छत्तीसगढ़ करेंट अफेयर्स</title>
+<style>
+  :root{
+    --bg: #0f2318;
+    --panel: #15301f;
+    --paper: #f6efe0;
+    --ochre: #c17a37;
+    --ochre-bright: #e0983f;
+    --line: rgba(246,239,224,0.14);
+    --muted: rgba(246,239,224,0.58);
+    --sarguja: #8a3b2b;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:
+      radial-gradient(ellipse at 15% 0%, rgba(224,152,63,0.08), transparent 55%),
+      var(--bg);
+    color: var(--paper);
+    font-family: 'Noto Sans Devanagari','Noto Sans',Georgia,serif;
+    min-height:100vh;
+  }
+  .wrap{max-width:760px;margin:0 auto;padding:0 20px 80px;}
+  header{
+    padding:46px 20px 30px;
+    border-bottom:1px solid var(--line);
+    max-width:760px;margin:0 auto;
+  }
+  .eyebrow{
+    font-family:'Noto Sans',sans-serif;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    font-size:11.5px;
+    color:var(--ochre-bright);
+    margin-bottom:14px;
+    display:flex; align-items:center; gap:10px;
+  }
+  .eyebrow::before{content:"◆"; font-size:9px; color:var(--sarguja);}
+  h1{font-size:40px; line-height:1.15; margin:0 0 10px; font-weight:700; letter-spacing:-.01em;}
+  h1 span{color:var(--ochre-bright);}
+  .sub{font-family:'Noto Sans',sans-serif; font-size:14.5px; color:var(--muted); line-height:1.6; max-width:56ch;}
+  .meta-row{margin-top:22px; display:flex; gap:22px; flex-wrap:wrap; font-family:'Noto Sans',sans-serif; font-size:12px; color:var(--muted);}
+  .meta-row b{color:var(--paper); font-weight:600;}
+  .log{margin-top:10px;}
+  .entry{position:relative; padding:34px 0 34px 34px; border-left:1px solid var(--line); margin-left:6px;}
+  .entry:last-child{border-left:1px solid transparent;}
+  .entry::before{content:""; position:absolute; left:-6px; top:38px; width:11px; height:11px; border-radius:50%; background:var(--ochre-bright); box-shadow:0 0 0 4px var(--bg), 0 0 0 5px var(--line);}
+  .date-tag{font-family:'Noto Sans',sans-serif; font-weight:700; font-size:13px; letter-spacing:.06em; color:var(--ochre-bright); text-transform:uppercase; margin-bottom:14px;}
+  .date-tag .day{color:var(--muted); font-weight:400; margin-left:8px; text-transform:none; letter-spacing:0;}
+  .card{background: var(--panel); border:1px solid var(--line); border-radius:10px; padding:16px 18px; margin-bottom:12px;}
+  .card h3{margin:0 0 8px; font-size:16.5px; line-height:1.4; font-weight:700; color:var(--paper);}
+  .card h3 .tag{font-family:'Noto Sans',sans-serif; font-size:10px; font-weight:700; letter-spacing:.05em; color:var(--bg); background:var(--ochre-bright); padding:2px 8px; border-radius:20px; vertical-align:middle; margin-right:8px;}
+  .card p{margin:0; font-size:14.5px; line-height:1.75; color: rgba(246,239,224,0.86);}
+  .card .src{
+    margin-top:10px; padding-top:8px;
+    font-family:'Noto Sans',sans-serif; font-size:11.5px; color:var(--muted);
+  }
+  .card .src:first-of-type{border-top:1px solid var(--line);}
+  .card .src a{color:var(--ochre-bright); text-decoration:none;}
+  .card .src a:hover{text-decoration:underline;}
+  footer{max-width:760px;margin:0 auto; padding:36px 20px 10px; font-family:'Noto Sans',sans-serif; font-size:12.5px; color:var(--muted); border-top:1px solid var(--line); line-height:1.8;}
+  footer b{color:var(--ochre-bright);}
+  .loading, .error{font-family:'Noto Sans',sans-serif; color:var(--muted); padding:40px 0;}
+  @media (max-width:600px){
+    h1{font-size:30px;}
+    header{padding:34px 16px 24px;}
+    .entry{padding-left:24px; margin-left:2px;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="eyebrow">CGPSC · व्यापम · दैनिक परिपत्र</div>
+    <h1>CG परिपत्र<br><span>छत्तीसगढ़ करेंट अफेयर्स</span></h1>
+    <p class="sub">रोज़ाना 3–4 परीक्षा-उपयोगी टॉपिक, तारीख़वार, सरल भाषा में। GitHub Actions हर दिन सुबह अपने-आप नई एंट्री जोड़ता है।</p>
+    <div class="meta-row">
+      <div>अंतिम अपडेट: <b id="lastUpdate">—</b></div>
+      <div>कुल एंट्री: <b id="entryCount">—</b></div>
+      <div>स्रोत: <b>केवल News on Air / PIB / .gov.in</b></div>
+    </div>
+  </header>
+
+  <div class="wrap" style="padding-top:8px;">
+    <div class="log" id="log"><div class="loading">लोड हो रहा है…</div></div>
+  </div>
+
+  <footer>
+    <p><b>यह कैसे काम करता है:</b> एक GitHub Action रोज़ सुबह (IST) चलता है, Gemini API को Google Search grounding के साथ कॉल करके उस दिन के छत्तीसगढ़ करेंट अफेयर्स निकालता है, और <code>data.json</code> में नई एंट्री जोड़कर वापस कमिट कर देता है — पूरी तरह ऑटोमैटिक।</p>
+  </footer>
+</div>
+
+<script>
+fetch('./data.json?t=' + Date.now())
+  .then(r => {
+    if (!r.ok) throw new Error('data.json load failed: ' + r.status);
+    return r.json();
+  })
+  .then(entries => {
+    entries.sort((a, b) => (a.iso_date < b.iso_date ? 1 : -1));
+    const log = document.getElementById('log');
+    log.innerHTML = '';
+    let count = 0;
+    entries.forEach(e => {
+      const entryEl = document.createElement('div');
+      entryEl.className = 'entry';
+      const dateTag = document.createElement('div');
+      dateTag.className = 'date-tag';
+      dateTag.innerHTML = e.date + (e.day && e.day !== '—' ? `<span class="day">${e.day}</span>` : '');
+      entryEl.appendChild(dateTag);
+      (e.items || []).forEach(it => {
+        count++;
+        const card = document.createElement('div');
+        card.className = 'card';
+        const srcLine = it.source_url
+          ? `<div class="src">स्रोत: <a href="${it.source_url}" target="_blank" rel="noopener">${it.source || 'आधिकारिक स्रोत'}</a></div>`
+          : '';
+        const paperLine = it.newspaper_url
+          ? `<div class="src">अख़बार में भी पढ़ें: <a href="${it.newspaper_url}" target="_blank" rel="noopener">${it.newspaper || 'लिंक'}</a></div>`
+          : '';
+        card.innerHTML = `<h3><span class="tag">${it.tag}</span>${it.title}</h3><p>${it.body}</p>${srcLine}${paperLine}`;
+        entryEl.appendChild(card);
+      });
+      log.appendChild(entryEl);
+    });
+    document.getElementById('entryCount').textContent = count;
+    document.getElementById('lastUpdate').textContent = entries.length ? entries[0].date : '—';
+  })
+  .catch(err => {
+    document.getElementById('log').innerHTML =
+      '<div class="error">डेटा लोड नहीं हो पाया: ' + err.message + '</div>';
+  });
+</script>
+</body>
+</html>
