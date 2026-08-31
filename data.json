@@ -1,5 +1,19 @@
 [
   {
+    "iso_date": "2026-08-31",
+    "date": "31 अगस्त 2026",
+    "day": "Mon",
+    "items": [
+      {
+        "tag": "संस्कृति",
+        "title": "छत्तीसगढ़ में 'रंग-तरंग' महोत्सव का आयोजन",
+        "body": "छत्तीसगढ़ी लोक संस्कृति की छटा बिखेरने के लिए राज्य में 'रंग-तरंग' कार्यक्रम का आयोजन किया जा रहा है। इस तीन दिवसीय सांस्कृतिक आयोजन की शुरुआत 1 सितंबर से होगी जो 3 सितंबर तक चलेगा। इसमें सुरों की महफिल सजेगी और स्थानीय लोक कला व संस्कृति का प्रदर्शन किया जाएगा।",
+        "source": "समाचार पत्र (Newspaper, via Google News)",
+        "source_url": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxNTFdHaXMwcExab1Y0OXlYWlJOQTZSMjJucFZzMjZLaGlrYmRyNE90c043NXdzNU1kM294UV9CZ2YtZWNSd0RBbGlCQ0NHbE8zYXR4bHplQjFBRlJ0U0Y1NDJtSko3QlpENERwNWl0Qzd4VzEtTFZBWWtEYzRlYTRUWmhtbVFEMDI4d3RwZkJWaGxfRk5sZ3RnaE5LM05tWFJKcUZfYWxEajl0YTN4M3JBSDlQYTMwa1ZETkYw0gHAAUFVX3lxTFBPYnVOMENoLUwtbEttMzRsOXJBR1RHVzZSZmZTTUdLVFk3VGZDOF9XcHFhSEt2QkVNSWJaaE5HajY0OTZpbW9Tb1MzZDQ3UDRmOEwxejg2RjNJRW80RDJmMGFrV1RIb0MxNlQ0M1JrOTNXTXdJVGFZZ2FXMkVvN2M1dC1qcTNZWlpHSnBSQ1VISnNvRFpMWDBmZ0hNV3NSdDVNVXRabGUtVWt5QVAzQ2JUYWp2RFdISmh3WEp0VEtRZw?oc=5"
+      }
+    ]
+  },
+  {
     "iso_date": "2026-08-20",
     "date": "20 अगस्त 2026",
     "day": "Thu",
@@ -35,6 +49,18 @@
         "tag": "जल संरक्षण",
         "title": "ग्राम स्तर पर 'जल सभा' मॉडल",
         "body": "चेक डैम, कंटूर ट्रेंच और परकोलेशन टैंक बनाने के साथ ग्राम-स्तरीय 'जल सभाओं' के ज़रिए ग्रामीणों, लघु किसानों और स्वयं सहायता समूहों को जल संचयन तकनीकों का प्रशिक्षण दिया जा रहा है।"
+      }
+    ]
+  },
+  {
+    "iso_date": "2026-06-15",
+    "date": "जून 2026",
+    "day": "—",
+    "items": [
+      {
+        "tag": "कल्याण योजना",
+        "title": "'सुग्घर छत्तीसगढ़' अभियान लॉन्च",
+        "body": "अंतिम छोर तक शासन पहुँचाने के लिए राज्य सरकार ने 'सुग्घर छत्तीसगढ़' अभियान शुरू किया — 23 जिलों में 31 प्रमुख कल्याणकारी योजनाओं की संतृप्ति लक्ष्य, ताकि पात्र परिवारों को बिना देरी लाभ मिले।"
       }
     ]
   },
@@ -80,18 +106,6 @@
         "body": "23 फरवरी को वित्त मंत्री ने आर्थिक सर्वेक्षण पेश किया — 2028 तक GSDP को ₹10 लाख करोड़ तक दोगुना करने का विज़न रखा गया।",
         "source": "News on Air",
         "source_url": "https://www.newsonair.gov.in/chhattisgarh-fm-o-p-choudhary-presents-budget-for-year-2026-27-in-state-legislative-assembly"
-      }
-    ]
-  },
-  {
-    "iso_date": "2026-06-15",
-    "date": "जून 2026",
-    "day": "—",
-    "items": [
-      {
-        "tag": "कल्याण योजना",
-        "title": "'सुग्घर छत्तीसगढ़' अभियान लॉन्च",
-        "body": "अंतिम छोर तक शासन पहुँचाने के लिए राज्य सरकार ने 'सुग्घर छत्तीसगढ़' अभियान शुरू किया — 23 जिलों में 31 प्रमुख कल्याणकारी योजनाओं की संतृप्ति लक्ष्य, ताकि पात्र परिवारों को बिना देरी लाभ मिले।"
       }
     ]
   }
